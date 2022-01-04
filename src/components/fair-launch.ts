@@ -134,7 +134,6 @@ export const getFairLaunchState = async (
       fairLaunchTicket,
     );
   } catch {
-    console.log('No ticket');
   }
 
   const treasury = await program.provider.connection.getBalance(state.treasury);
@@ -153,7 +152,6 @@ export const getFairLaunchState = async (
 
     lotteryData = new Uint8Array(fairLaunchLotteryBitmapObj?.data || []);
   } catch (e) {
-    console.log('Could not find fair launch lottery.');
     console.log(e);
   }
 
@@ -201,11 +199,6 @@ export const punchTicket = async (
   )[0];
 
   if (ticket?.amount.gt(fairLaunch.state.currentMedian)) {
-    console.log(
-      'Adjusting down...',
-      ticket?.amount.toNumber(),
-      fairLaunch.state.currentMedian.toNumber(),
-    );
     const { remainingAccounts, instructions, signers } =
       await getSetupForTicketing(
         fairLaunch.program,
@@ -468,12 +461,12 @@ export const receiveRefund = async (
     });
   }
 
-  console.log(
-    'tfr',
-    fairLaunch.state.treasury.toBase58(),
-    anchorWallet.publicKey.toBase58(),
-    buyerTokenAccount.toBase58(),
-  );
+  // console.log(
+  //   'tfr',
+  //   fairLaunch.state.treasury.toBase58(),
+  //   anchorWallet.publicKey.toBase58(),
+  //   buyerTokenAccount.toBase58(),
+  // );
   await fairLaunch.program.rpc.receiveRefund({
     accounts: {
       fairLaunch: fairLaunch.id,
@@ -522,11 +515,11 @@ export const purchaseTicket = async (
   if (ticket) {
     const fairLaunchLotteryBitmap = //@ts-ignore
     (await getFairLaunchLotteryBitmap(fairLaunch.state.tokenMint))[0];
-    console.log(
-      'Anchor wallet',
-      anchorWallet.publicKey.toBase58(),
-      amountLamports,
-    );
+    // console.log(
+    //   'Anchor wallet',
+    //   anchorWallet.publicKey.toBase58(),
+    //   amountLamports,
+    // );
     await fairLaunch.program.rpc.adjustTicket(new anchor.BN(amountLamports), {
       accounts: {
         fairLaunchTicket,

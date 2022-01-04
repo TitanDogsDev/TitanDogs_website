@@ -35,7 +35,6 @@ export const MintButton = ({
 
   useEffect(() => {
     if (gatewayStatus === GatewayStatus.ACTIVE && clicked) {
-      console.log('Minting');
       onMint();
       setClicked(false);
     }

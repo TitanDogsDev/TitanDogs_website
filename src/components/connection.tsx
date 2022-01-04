@@ -108,14 +108,14 @@ export async function sendTransactionsWithManualRetry(
     } catch (e) {
       console.error(e);
     }
-    console.log(
-      'Died on ',
-      stopPoint,
-      'retrying from instruction',
-      instructions[stopPoint],
-      'instructions length is',
-      instructions.length,
-    );
+    // console.log(
+    //   'Died on ',
+    //   stopPoint,
+    //   'retrying from instruction',
+    //   instructions[stopPoint],
+    //   'instructions length is',
+    //   instructions.length,
+    // );
     lastInstructionsLength = instructions.length;
   }
 
@@ -170,12 +170,12 @@ export const sendTransactions = async (
   const pendingTxns: Promise<{ txid: string; slot: number }>[] = [];
 
   let breakEarlyObject = { breakEarly: false, i: 0 };
-  console.log(
-    'Signed txns length',
-    signedTxns.length,
-    'vs handed in length',
-    instructionSet.length,
-  );
+  // console.log(
+  //   'Signed txns length',
+  //   signedTxns.length,
+  //   'vs handed in length',
+  //   instructionSet.length,
+  // );
   for (let i = 0; i < signedTxns.length; i++) {
     const signedTxnPromise = sendSignedTransaction({
       connection,
@@ -201,7 +201,6 @@ export const sendTransactions = async (
       } catch (e) {
         console.log('Caught failure', e);
         if (breakEarlyObject.breakEarly) {
-          console.log('Died on ', breakEarlyObject.i);
           // Return the txn we failed on by index
           return {
             number: breakEarlyObject.i,
@@ -363,8 +362,6 @@ export async function sendSignedTransaction({
     },
   );
 
-  console.log('Started awaiting confirmation for', txid);
-
   let done = false;
   (async () => {
     while (!done && getUnixTs() - startTime < timeout) {
@@ -421,7 +418,6 @@ export async function sendSignedTransaction({
     done = true;
   }
 
-  console.log('Latency', txid, getUnixTs() - startTime);
   return { txid, slot };
 }
 
@@ -471,7 +467,6 @@ async function awaitTransactionSignatureConfirmation(
         return;
       }
       done = true;
-      console.log('Rejecting for timeout...');
       reject({ timeout: true });
     }, timeout);
     try {
@@ -485,10 +480,8 @@ async function awaitTransactionSignatureConfirmation(
             confirmations: 0,
           };
           if (result.err) {
-            console.log('Rejected via websocket', result.err);
             reject(status);
           } else {
-            console.log('Resolved via websocket', result);
             resolve(status);
           }
         },
@@ -508,15 +501,14 @@ async function awaitTransactionSignatureConfirmation(
           status = signatureStatuses && signatureStatuses.value[0];
           if (!done) {
             if (!status) {
-              console.log('REST null result for', txid, status);
+              // console.log('REST null result for', txid, status);
             } else if (status.err) {
               console.log('REST error for', txid, status);
               done = true;
               reject(status.err);
             } else if (!status.confirmations) {
-              console.log('REST no confirmations for', txid, status);
+              // console.log('REST no confirmations for', txid, status);
             } else {
-              console.log('REST confirmation for', txid, status);
               done = true;
               resolve(status);
             }
@@ -535,7 +527,6 @@ async function awaitTransactionSignatureConfirmation(
   if (connection._signatureSubscriptions[subId])
     connection.removeSignatureListener(subId);
   done = true;
-  console.log('Returning status', status);
   return status;
 }
 export function sleep(ms: number): Promise<void> {

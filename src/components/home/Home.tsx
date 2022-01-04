@@ -176,9 +176,7 @@ const Home = (props: HomeProps) => {
           console.log('Problem getting candy machine state');
           console.log(e);
         }
-      } else {
-        console.log('No candy machine detected in configuration.');
-      }
+      } 
     })();
   }, [
     anchorWallet,
