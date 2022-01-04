@@ -19,12 +19,12 @@ const RoadMap = () => {
     };
 
     return (
-        <div id="roadmap" className='w-full flex flex-col justify-center items-center text-2xl bg-gradient-to-b from-purple-800 to-black pr-5 py-20 sm:p-10'>
-            <h1 className='uppercase text-white text-4xl font-bold'>
+        <div id="roadmap" className='w-full flex flex-col justify-center items-center text-2xl bg-gradient-to-b from-purple-800 to-black pr-5 sm:px-10 py-20 sm:p-10'>
+            <h1 className='uppercase text-white text-4xl font-bold mb-4'>
                 RoadMap
             </h1>
-            <div className='w-full md:w-3/4 flex flex-row flex-wrap justify-start items-start mt-16'>
-                <div className='w-128'>
+            <div className='w-full flex flex-row flex-wrap justify-start items-start mt-16'>
+                <div className='w-full md:w-1/2'>
                     <Timeline theme={customTheme} dateFormat='ll'>
                         <Container>
                             <YearContent startDate='2022' currentYear={false} />
@@ -49,7 +49,7 @@ const RoadMap = () => {
                         </Container>
                     </Timeline>
                 </div>
-                <div className='w-128'>
+                <div className='w-full md:w-1/2'>
                     <Timeline theme={customTheme} dateFormat='ll'>
                         <Container>
                             <YearContent startDate='2022' currentYear={false} />
@@ -83,7 +83,7 @@ const RoadMap = () => {
             <div className='w-1/2 mt-16'>
                 <div className='w-full text-white text-lg flex flex-row'>
                     <p>*</p>
-                    <p className='ml-4'>
+                    <p className='ml-4 text-justify'>
                         Please note that the road map is subject to change based on the Dog DAO decisions going forward.
                     </p>
                 </div>

@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import metadata from "../../data/metadata";
 import ReactCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import shuffle from "../../tools/shuffle";
 
 const responsive = {
     largeDesktop: {
@@ -24,12 +22,14 @@ const responsive = {
 };
 
 const Carousel = () => {
-    const [images, setImages] = useState<string[]>([]);
+    const [indexes, setIndexes] = useState<number[]>([]);
 
     useEffect(() => {
-        let imageArray = shuffle(metadata.images);
-        imageArray = imageArray.slice(0, 10);
-        setImages(imageArray);
+        let indexArray = [];
+        for (let i = 0; i < 10; i++) {
+            indexArray.push(Math.floor(Math.random() * 1000))
+        }
+        setIndexes(indexArray);
     }, [])
 
     return (
@@ -50,9 +50,9 @@ const Carousel = () => {
                     transitionDuration={300}
                     removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
                 >
-                    {images.map(image => (
+                    {indexes.map((index) => (
                         <div className="px-10 py-20 flex justify-center items-center">
-                            <img className="rounded-2xl w-96 h-auto border-purple-500 border-4" src={image} alt="titan" />
+                            <img className="rounded-2xl w-96 h-auto border-purple-500 border-4" src={`./images/titans/${index}.png`} alt="titan" />
                         </div>
                     ))}
                 </ReactCarousel>

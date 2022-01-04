@@ -59,30 +59,32 @@ const App = () => {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <ConnectionProvider endpoint={endpoint}>
-        <WalletProvider wallets={wallets} autoConnect>
-          <WalletDialogProvider>
-            <ConfettiProvider>
-              <NavBar />
-              <Home
-                candyMachineId={candyMachineId}
-                fairLaunchId={fairLaunchId}
-                connection={connection}
-                startDate={startDateSeed}
-                txTimeout={txTimeout}
-                rpcHost={rpcHost}
-              />
-              <Carousel />
-              <Utility />
-              <RoadMap />
-              <About />
-              <Footer />
-            </ConfettiProvider>
-          </WalletDialogProvider>
-        </WalletProvider>
-      </ConnectionProvider>
-    </ThemeProvider>
+    <div className='w-screen overflow-x-hidden'>
+      <ThemeProvider theme={theme}>
+        <ConnectionProvider endpoint={endpoint}>
+          <WalletProvider wallets={wallets} autoConnect>
+            <WalletDialogProvider>
+              <ConfettiProvider>
+                <NavBar />
+                <Home
+                  candyMachineId={candyMachineId}
+                  fairLaunchId={fairLaunchId}
+                  connection={connection}
+                  startDate={startDateSeed}
+                  txTimeout={txTimeout}
+                  rpcHost={rpcHost}
+                />
+                <Carousel />
+                <Utility />
+                <RoadMap />
+                <About />
+                <Footer />
+              </ConfettiProvider>
+            </WalletDialogProvider>
+          </WalletProvider>
+        </ConnectionProvider>
+      </ThemeProvider>
+    </div>
   );
 };
 

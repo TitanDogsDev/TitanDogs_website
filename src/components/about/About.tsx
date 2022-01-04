@@ -5,18 +5,13 @@ import ComicLogo from "../../images/comic_logo.png";
 import YoutubeLogo from "../../images/youtube_logo.png";
 
 const About = () => {
-    const scrollToTop = () => {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-
     return (
         <div id="about" className="w-full h-auto flex flex-col justify-center items-center bg-gradient-to-b from-black to-black text-white py-20 sm:p-20">
             <h1 className="text-4xl uppercase font-bold">About me</h1>
             <div className="w-3/4 flex flex-row flex-wrap justify-around items-start mt-16">
                 <div>
                     <img className="w-60" src={Avatar} alt="avatar" />
-                    <div className="w-auto flex flex-row flex-wrap justify-around items-center my-6">
+                    <div className="w-auto flex flex-row flex-wrap justify-around items-center mt-6 mb-10">
                         <a href="https://peakd.com/@jrej" className="w-1/4 flex flex-col justify-center items-center cursor-pointer" target="_blank" rel="noreferrer">
                             <img className="w-10 my-2" src={PeakdLogo} alt="" />
                             Blog
@@ -60,15 +55,15 @@ const About = () => {
                     </ul>
                 </div>
             </div>
-            <p className="text-lg mt-6">Thanks for your consideration. Let's have some fun!</p>
-            <button className="cursor-pointer mt-16 flex flex-col justify-center items-center" onClick={scrollToTop}>
+            <p className="text-lg text-center m-10">Thanks for your consideration. Let's have some fun!</p>
+            <a className="cursor-pointer mt-10 flex flex-col justify-center items-center" href="#home">
                 <div className="w-16 flex justify-center items-center border-2 border-purple-500 rounded-full p-2 hover:p-4 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="#9333ea">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                     </svg>
                 </div>
                 <p className="m-4">Back to mint</p>
-            </button>
+            </a>
         </div>
     )
 }

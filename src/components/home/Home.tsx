@@ -25,8 +25,12 @@ import { MintButton } from '../MintButton';
 import { getPhase, Phase } from '../PhaseHeader';
 import { GatewayProvider } from '@civic/solana-gateway-react';
 
-import Background from "../../images/background_banner.png";
-import TitanDog from "../../images/sol_titan.png";
+import Background_1900 from "../../images/background_banner_1900.png";
+import Background_600 from "../../images/background_banner_600.png";
+
+import TitanDog_1300 from "../../images/sol_titan_1300.png";
+import TitanDog_600 from "../../images/sol_titan_600.png";
+
 import DogFace from "../../images/dog_face.png";
 
 const ConnectButton = styled(WalletDialogButton)`
@@ -185,17 +189,17 @@ const Home = (props: HomeProps) => {
   const phase = getPhase(undefined, candyMachine);
 
   return (
-    <div id="home-container" className="w-sreen h-full">
-      <div id="mint-container" className="relative w-full h-full flex justify-center items-center z-10 p-16">
-        <div id="mint-component" className="bg-black p-6 sm:p-10 md:w-auto h-full flex flex-row flex-wrap-reverse justify-center items-center rounded-xl z-10">
-          <div id="mint-grid" className="h-128 w-128 flex flex-col justify-around items-center text-white py-10">
+    <div id="home" className="w-sreen h-full">
+      <div id="mint-container" className="relative w-full h-full flex justify-center items-center z-10 py-8 sm:px-16">
+        <div id="mint-component" className="bg-black p-6 sm:p-10 w-11/12 sm:w-auto h-full flex flex-row flex-wrap-reverse justify-center items-center rounded-xl z-10">
+          <div id="mint-grid" className="w-full sm:w-128 h-auto sm:h-128 flex flex-col justify-around items-center text-white py-10">
 
             {phase === Phase.Unknown && !candyMachine && (
               <div className='flex flex-col justify-center items-start px-24'>
-                <h2 className="font-bold text-left text-7xl mb-2">
+                <h2 className="font-bold text-left text-5xl sm:text-6xl md:text-7xl mb-2">
                   Welcome
                 </h2>
-                <p className="font-bold text-gray-500 text-left text-lg">
+                <p className="font-bold text-gray-500 text-left text-lg mb-10">
                   Please connect your wallet to mint your very own Titan Dog.
                 </p>
               </div>
@@ -265,10 +269,10 @@ const Home = (props: HomeProps) => {
               </div>
             )}
           </div>
-          <img className="w-128" src={TitanDog} alt="titandog" />
+          <img className="w-3/4 sm:w-128" src={TitanDog_1300} srcSet={`${TitanDog_600} 600w, ${TitanDog_1300} 1300w`} alt="titandog" />
         </div>
 
-        <img className="absolute top-0 object-cover w-full h-full z-0" src={Background} alt="background_image" />
+        <img className="absolute top-0 object-cover w-full h-full z-0" src={Background_1900} srcSet={`${Background_600} 600w, ${Background_1900} 1900w`} alt="background_image" />
       </div>
       <Snackbar
         open={alertState.open}
