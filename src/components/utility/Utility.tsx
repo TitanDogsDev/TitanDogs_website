@@ -35,7 +35,7 @@ const Utility = () => {
                             Not another card game!
                         </p>
                         <p className="mt-4 ">
-                            You'll be facing incremental waves of enemies in this collaborative turn-based stategy game. Set in cities around the world, you'll be searching for power ups, bashing enemies, helping other players.
+                            You'll be facing incremental waves of enemies in this collaborative turn-based strategy game. Set in cities around the world, you'll be searching for power ups, bashing enemies, helping other players.
                         </p>
                         <p className="mt-4">
                             Get the following perks before anyone else:
