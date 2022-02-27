@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from '../components/navbar/NavBar';
 import Home from '../routes/home/Home';
 import Footer from "../components/footer/Footer";
-import Profile from "../routes/profile/Profile";
+import HolderPage from "../routes/holder/holder";
 
 import * as anchor from '@project-serum/anchor';
 import { clusterApiUrl } from '@solana/web3.js';
@@ -74,7 +74,7 @@ const App = () => {
                       rpcHost={rpcHost}
                     />
                   } />
-                  <Route path="profile" element={<Profile />} />
+                  <Route path="holder" element={<HolderPage />} />
                 </Routes>
                 <Footer />
               </ConfettiProvider>

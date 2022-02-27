@@ -1,9 +1,11 @@
+import { CTAButton } from '../../components/MintButton';
+import { Link } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react"
 import { useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey } from "@solana/web3.js";
 import * as anchor from '@project-serum/anchor';
 
-const Verify = () => {
+const HolderPage = () => {
     const wallet = useWallet();
     const [isHolder, setIsHolder] = useState<boolean>(false);
     const [isVerifying, setIsVerifying] = useState<boolean>(false);
@@ -101,7 +103,7 @@ const Verify = () => {
         <div className="bg-white h-auto mb-6 flex flex-col justify-center items-center bg-gradient-to-b from-black to-purple-600">
             <div className={`bg-white rounded-lg w-3/4 h-auto min-h-screen3/4 p-12 flex flex-col justify-between items-center`}>
                 <div className="flex justify-center items-center">
-                    <h1 className='text-3xl font-bold'>Profile page</h1>
+                    <h1 className='text-3xl font-bold'>Holder page</h1>
                 </div>
                 {
                     !wallet.publicKey ?
@@ -113,6 +115,11 @@ const Verify = () => {
                             <div className="h-24 flex flex-col justify-around items-center">
                                 <p>Looks like you are not a holder.</p>
                                 <p>You're missing out!</p>
+                                <Link className="mt-6" to="/">
+                                    <CTAButton>
+                                        Go mint 
+                                    </CTAButton>
+                                </Link>
                             </div>
                 }
                 <div className="h-20" />
@@ -121,4 +128,4 @@ const Verify = () => {
     )
 }
 
-export default Verify;
+export default HolderPage;

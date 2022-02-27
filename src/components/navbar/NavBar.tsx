@@ -35,8 +35,8 @@ const NavBar = () => {
                         <a className="cursor-pointer" href="#utility"><h1 className="text-white uppercase sm:ml-4">Utility</h1></a>
                         <a className="cursor-pointer" href="#roadmap"><h1 className="text-white uppercase sm:ml-4">Roadmap</h1></a>
                         <a className="cursor-pointer" href="#about"><h1 className="text-white uppercase sm:ml-4">About</h1></a>
-                        <Link to={"profile"}>
-                            <h1 className="text-white uppercase sm:ml-4">Profile</h1>
+                        <Link to={"holder"}>
+                            <h2 className="text-purple-400 font-bold text-md uppercase sm:ml-4">Holder</h2>
                         </Link>
 
                     </div>

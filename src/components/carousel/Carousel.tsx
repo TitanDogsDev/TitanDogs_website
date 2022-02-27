@@ -27,7 +27,7 @@ const Carousel = () => {
     useEffect(() => {
         let indexArray = [];
         for (let i = 0; i < 10; i++) {
-            indexArray.push(Math.floor(Math.random() * 1000))
+            indexArray.push(Math.floor(Math.random() * 100))
         }
         setIndexes(indexArray);
     }, [])
