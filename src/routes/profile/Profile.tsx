@@ -51,7 +51,7 @@ const Verify = () => {
             }
 
             let status: number;
-            fetch("http://localhost:5000/verify", options)
+            fetch(`${process.env.BACKEND_URL}/verify`, options)
                 .then(res => {
                     status = res.status;
                     return res.json();
