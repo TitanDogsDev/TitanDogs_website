@@ -1,13 +1,10 @@
-import './App.css';
 import { useMemo } from 'react';
+import { Routes, Route } from "react-router-dom";
 
-import Home from '../components/home/Home';
 import NavBar from '../components/navbar/NavBar';
-import About from '../components/about/About';
-import Carousel from '../components/carousel/Carousel';
-import Utility from "../components/utility/Utility";
-import RoadMap from '../components/roadmap/Roadmap';
+import Home from '../routes/home/Home';
 import Footer from "../components/footer/Footer";
+import Profile from "../routes/profile/Profile";
 
 import * as anchor from '@project-serum/anchor';
 import { clusterApiUrl } from '@solana/web3.js';
@@ -23,9 +20,10 @@ import {
   WalletProvider,
 } from '@solana/wallet-adapter-react';
 
-import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui';
-import { ThemeProvider, createTheme } from '@material-ui/core';
 import { ConfettiProvider } from '../components/confetti';
+import { ThemeProvider, createTheme } from '@material-ui/core';
+import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui';
+import './App.css';
 
 const theme = createTheme({
   palette: {
@@ -53,10 +51,9 @@ const txTimeout = 30000; // milliseconds (confirm this works for your project)
 const App = () => {
   const endpoint = useMemo(() => clusterApiUrl(network), []);
 
-  const wallets = useMemo(
-    () => [getPhantomWallet(), getSolflareWallet(), getSolletWallet()],
-    [],
-  );
+  const wallets = useMemo(() => (
+    [getPhantomWallet(), getSolflareWallet(), getSolletWallet()]
+  ), []);
 
   return (
     <div className='w-screen overflow-x-hidden'>
@@ -66,18 +63,19 @@ const App = () => {
             <WalletDialogProvider>
               <ConfettiProvider>
                 <NavBar />
-                <Home
-                  candyMachineId={candyMachineId}
-                  fairLaunchId={fairLaunchId}
-                  connection={connection}
-                  startDate={startDateSeed}
-                  txTimeout={txTimeout}
-                  rpcHost={rpcHost}
-                />
-                <Carousel />
-                <Utility />
-                <RoadMap />
-                <About />
+                <Routes>
+                  <Route path="/" element={
+                    <Home
+                      candyMachineId={candyMachineId}
+                      fairLaunchId={fairLaunchId}
+                      connection={connection}
+                      startDate={startDateSeed}
+                      txTimeout={txTimeout}
+                      rpcHost={rpcHost}
+                    />
+                  } />
+                  <Route path="profile" element={<Profile />} />
+                </Routes>
                 <Footer />
               </ConfettiProvider>
             </WalletDialogProvider>

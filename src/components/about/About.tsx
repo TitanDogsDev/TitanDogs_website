@@ -59,7 +59,7 @@ const About = () => {
             <a className="cursor-pointer mt-10 flex flex-col justify-center items-center" href="#home">
                 <div className="w-16 flex justify-center items-center border-2 border-purple-500 rounded-full p-2 hover:p-4 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="#9333ea">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                     </svg>
                 </div>
                 <p className="m-4">Back to mint</p>

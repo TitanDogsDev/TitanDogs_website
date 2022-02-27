@@ -11,7 +11,7 @@ export const CTAButton = styled(Button)`
   height: 60px;
   margin-top: 10px;
   margin-bottom: 5px;
-  background: linear-gradient(180deg, #8f63d8 0%, #8f63d8 100%);
+  background: linear-gradient(180deg, #a855f7 0%, #a855f7 100%);
   color: white !important;
   font-size: 16px;
   font-weight: bold;

@@ -33,7 +33,7 @@ const Carousel = () => {
     }, [])
 
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center bg-purple-500">
             <div className="w-9/12">
                 <ReactCarousel
                     swipeable={true}
@@ -51,8 +51,8 @@ const Carousel = () => {
                     removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
                 >
                     {indexes.map((index) => (
-                        <div className="px-10 py-20 flex justify-center items-center">
-                            <img className="rounded-2xl w-96 h-auto border-purple-500 border-4" src={`./images/titans/${index}.png`} alt="titan" />
+                        <div key={index} className="px-10 py-20 flex justify-center items-center">
+                            <img className="rounded-2xl w-96 h-auto border-purple-600 border-4" src={`./images/titans/${index}.png`} alt="titan" />
                         </div>
                     ))}
                 </ReactCarousel>
