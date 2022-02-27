@@ -53,7 +53,7 @@ const HolderPage = () => {
             }
 
             let status: number;
-            fetch(`${process.env.BACKEND_URL}/verify`, options)
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/verify`, options)
                 .then(res => {
                     status = res.status;
                     return res.json();
@@ -78,6 +78,7 @@ const HolderPage = () => {
         return (
             <div className="w-full flex flex-col justify-center items-center m-4">
                 <h2 className="text-xl font-bold">Welcome back!</h2>
+                <p className="my-2">Access all the <span className="font-bold">dev ressources</span> on <a className="font-bold text-purple-500" href="https://github.com/TitanDogsDev">https://github.com/TitanDogsDev</a></p>
                 {
                     metaData.length === 1 ?
                         <p className="mb-10">This is the NFT you own from this collection:</p>
@@ -117,7 +118,7 @@ const HolderPage = () => {
                                 <p>You're missing out!</p>
                                 <Link className="mt-6" to="/">
                                     <CTAButton>
-                                        Go mint 
+                                        Go mint
                                     </CTAButton>
                                 </Link>
                             </div>

@@ -13,14 +13,17 @@ const Utility = () => {
                             Become a member of the Dog DAO.
                         </h2>
                         <p className="">
-                            Any person that buys and holds a Titan Dog NFT becomes a member of the Dog DAO. They will get the following benefits:
+                            If you buy and hold a Titan Dog NFT, you become a member of the Dog DAO, a friendly and creative community that shares a passion for NFTs and want to build cool stuff together in this space. You will be getting the following benefits:
                         </p>
                         <ul className="list-disc pl-6">
                             <li className="mt-4 ">
-                                Voting on the use of the community wallet which will be filled with the 5% of secondary sales commission (It can be used as passive income to holders, raising floor price, marketing, etc...)
+                                Getting unlimited access to all dev ressources around the project, past and future. (This already includes an NFT generation tool, website template, back-end server with holder verification), Much more to come...
                             </li>
                             <li className="mt-4 ">
-                                Being an active part of the game development, with the ability to make and vote on game feature proposals. (This includes votes on features, maps, custom Titan parts and more to come...)
+                                Making proposals for the next dev tutorial videos on the subject of your choice (front-end, back-end, game-dev, web3, ...) and for Titan Dogs P2E game features.
+                            </li>
+                            <li className="mt-4 ">
+                                Voting for proposals and on the use of the community wallet which will be filled with the 5% of secondary sales commission (It can be used as passive income to holders, raising floor price, marketing, etc...)
                             </li>
                         </ul>
                     </li>
